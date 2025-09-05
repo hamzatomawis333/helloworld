@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Impactful Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+       
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:dIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiBwYX') repeat;
+            pointer-events: none;
+        }
+
+        .profile-pic {
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.3s;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+        }
+        .profile-pic:hover {
+            transform: scale(1.05);
+        }
+
+       
+        .btn {
+            background: white;
+            color: #667eea;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s, transform 0.3s;
+            margin: 0.5rem;
+        }
+        .btn:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .dashboard-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            color: white;
+            transition: transform 0.3s;
+        }
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+        }
+
+       
+        .intro, .skills {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .show {
+            display: block !important;
+            opacity: 1 !important;
+        }
+
+      
+        .slideshow-text {
+            color: white;
+            font-size: 1.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            margin: 2rem 0;
+            text-align: center;
+            min-height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        
+        .intro {
+            background: #f8f9fa;
+            padding: 4rem 0;
+            color: #333;
+        }
+
+       
+        .skills {
+            background: #343a40;
+            color: white;
+            padding: 4rem 0;
+        }
+        .skill-item {
+            background: white;
+            color: #343a40;
+            padding: 1rem;
+            margin: 0.5rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+      
+        @media (max-width: 768px) {
+            .hero {
+                padding: 2rem 0;
+            }
+            .profile-pic {
+                width: 150px;
+                height: 150px;
+            }
+            .slideshow-text {
+                font-size: 1.2rem;
+                margin: 1rem 0;
+            }
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+   
+    <section class="hero">
+        <div class="container mx-auto px-4 text-center">
+            <img src="6217bea1-566a-4158-afcf-7bb8d642ffb6.jfif" alt="" class="profile-pic mx-auto mb-4" />
+            <h1 class="text-4xl md:text-5xl font-bold text-white mt-4">Hi, I'm Mohammad Hamzah J. Tomawis</h1>
+            <div id="slideshow" class="slideshow-text"></div>
+            <a id="learnMoreBtn" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <section id="about" class="intro">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-6">About Me</h2>
+            <div class="max-w-2xl mx-auto text-lg">
+             <p>
+                I am <strong>Mohammad Hamzah J. Tomawis</strong> i'm one of the aspiring students of PEACI, My course is Information technology, i pursue this course because i want to learn coding and designing.
+             </p>
+                <p class="mt-4">
+                    I want this code to be my introduction about coding and so you can see what my skills are thank you!
+                </p>
+            </div>
+<button id="showSkillsBtn" class="btn mx-auto mt-6">See My Skills</button>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-6">My Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
+                <div class="skill-item">JavaScript (Basic)</div>
+                <div class="skill-item">C++ (Basic)</div>
+                <div class="skill-item">HTML/CSS (Basic)</div>
+                <div class="skill-item">Node.js (Basic)</div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        
+        const slideshowTexts = [
+            "Handsome",
+            "Frontend Developer (Basic)",
+            "Passionate Design and Coding",
+            "Want to Learn More"
+        ];
+        let currentIndex = 0;
+        const slideshowElement = document.getElementById('slideshow');
+
+        function updateSlideshow() {
+            slideshowElement.textContent = slideshowTexts[currentIndex];
+            currentIndex = (currentIndex + 1) % slideshowTexts.length;
+        }
+
+        setInterval(updateSlideshow, 3000);
+        updateSlideshow(); // 
+       
+        const learnMoreBtn = document.getElementById('learnMoreBtn');
+        const aboutSection = document.getElementById('about');
+        const skillsSection = document.getElementById('skills');
+        const showSkillsBtn = document.getElementById('showSkillsBtn');
+
+        learnMoreBtn.addEventListener('click', function(event) {
+            event.preventDefault();
+            aboutSection.classList.add('show');
+            aboutSection.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        showSkillsBtn.addEventListener('click', function() {
+            skillsSection.classList.add('show');
+            skillsSection.scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
+
